@@ -6,6 +6,16 @@
 #include <ctype.h>
 #include <string.h>
 
+int ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 int	ft_tolower(int value)
 {
 	if (value >= 'A' && value <= 'Z')
@@ -30,7 +40,9 @@ int main(int argc, char **argv)
     tmp = str1;
     if (argc != 3)
         return (1);
-    while (*tmp != '\0') 
+    if (ft_strlen(argv[1]) != ft_strlen(argv[2]))
+	return (1);
+    while (*tmp != '\0')
     {
         freq1[ft_tolower(*tmp) - 'a']++;
         tmp++;
